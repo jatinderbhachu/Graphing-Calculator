@@ -85,12 +85,10 @@ void Application::run() {
                         //if the draggable point is clicked
                         moving = true;
                         oldPos = mWindow.mapPixelToCoords(sf::Vector2i(event.mouseButton.x, event.mouseButton.y));
-                        evaluateGraph();
                     }
                 } else if(event.type == sf::Event::MouseButtonReleased){
                     if (event.mouseButton.button == 0) {
                         moving = false;
-                        evaluateGraph();
                     }
                 } else if(event.type == sf::Event::MouseMoved) {
                     if(moving){
@@ -146,7 +144,7 @@ void Application::run() {
             showAxis();
         }
 
-        ImGui::Text("Mouse Pos: (%1.2f, %1.2f)", mMousePos.x, mMousePos.y);
+        ImGui::Text("Mouse Pos: (%1.2f, %1.2f)", mMousePos.x, -mMousePos.y);
         //ImGui::Text("Step Accuracy: %1.10f", stepAccuracy);
 
         //ImGui::Text("Step: %1.2f", stepAccuracy);
